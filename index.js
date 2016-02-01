@@ -68,4 +68,34 @@ var zoo = {
 		currentScope.visit();
 		currentScope.view(currentScope);
 	};
+	view: function(){
+		var currentScope = input_scope;
+		console.log("Please choose what you would like to visit!");
+		prompt.get(["visit"] function(err, result){
+			if(result.visit == "Q"){
+				currentScope.menu();
+			}
+			else if (result.visit == "O"){
+				currentScope.type(input_scope);
+			}
+			else if (result.type == "I"){
+				currentScope.type(input_scope);
+			}
+			else if (result.animId == "N"){
+				currentScope.name(input_scope);
+			}
+			else if (result.name == "A"){
+				currentScope.all(input_scope);
+			}
+			else if (result.all == "C"){
+				currentScope.care(input_scope);
+			}
+			else {
+				console.log("Sorry! Didn't get that, come again?");
+			}
+		});
+		currentScope.visit();
+		currentScope.view(currentScope)
+	};
+	
 }
