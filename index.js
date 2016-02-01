@@ -38,17 +38,17 @@ var zoo = {
     console.log("")
 	},
 	add: function(input_scope){
-		var current scope = input_scope;
+		var currentScope = input_scope;
 		console.log("To add an animal to the zoo please fill out the following form for us!");
-		prompt.get(["caretaker_id", "name", "type", "age",] function(err, result){
+		prompt.get(["caretaker_id", "name", "type", "age"] function(err, result){
 			var query = "INSERT INTO animals (caretaker_id, name, type, age) VALUES (?,?,?,?)";
 			var userResult = [result.caretaker_id, result.name, result.type, result.age];
 
 			connection.query(query, userResult, function(err, results){
 				if(err) throw err;
 				console.log("Inserted" + result.name + " into the Zoo database!");
-			});
-		});
+			})
+		})
 		currentScope.menu();
 		currentScope.promptUser();
 	};
