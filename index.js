@@ -110,5 +110,17 @@ var zoo = {
 			});
 		});
 	};
-	
+	care: function(input_scope){
+		var currentScope = input_scope;
+		console.log("Enter city name NY/SF");
+		prompt.get(["city_name"] function(err, result){
+			var query = "SELECT COUNT (*) FROM animals,caretakers WHERE caretakers.city=? AND caretaker.id = animals.caretaker_id"
+			var userResult = results.city_name;
+			connection.query(quert, userResult function(err, result){
+				if (err) throw (err);
+				currentScope.visit();
+				currentScope.view(currentScope);
+			});
+		});
+	}
 }
