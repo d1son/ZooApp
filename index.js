@@ -136,4 +136,27 @@ var zoo = {
 			});
 		});
 	};
+	name: function(input_scope){
+		var currentScope = input_scope;
+		console.log("Enter the name of the animal you want to vist");
+		prompt.get(["name"] function(err, result){
+			var query = "SELECT * FROM animals WHERE name = ?";
+			var userResult = results.name;
+			connection.query(query, userResult function(err, result){
+				if (err) throw err;
+				currentScope.visit();
+				currentScope.view(currentScope);
+			});
+		});
+	};
+	all: function(input_scope){
+		var currentScope = input_scope;
+		console.log("");
+		var query = "SELECT COUNT (*) FROM animals";
+		connection.query(query, function(err, result){
+			if (err) throw err;
+			currentScope.menu();
+			currentScope.promptUser();
+		});
+	};
 }
