@@ -51,6 +51,21 @@ var zoo = {
 		});
 		currentScope.menu();
 		currentScope.promptUser();
-	}
-	
+	};
+	visit: function(){
+		console.log("Enter (I): ------> do you know the animal by it's id? We will visit that animal!");
+		console.log("");
+		console.log("Enter (N): ------> do you know the animal by it's name? We will visit that animal!");
+		console.log("");
+		console.log("Enter (A): ------> here's the count for all animals in all locations!");
+		console.log("");
+		console.log("Enter (C): ------> here's the count for all animals in this one city!");
+		console.log("");
+		console.log("Enter (O): ------> here's the count for all the animals in all locations by the type you specified!");
+		console.log("");
+		console.log("Enter (Q): ------> Quits to the main menu!");
+		console.log("");
+		currentScope.visit();
+		currentScope.view(currentScope);
+	};
 }
