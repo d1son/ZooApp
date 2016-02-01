@@ -159,4 +159,16 @@ var zoo = {
 			currentScope.promptUser();
 		});
 	};
+	update: function(input_scope){
+		var currentScope = input_scope;
+		prompt.get(["--->", "id", "new_name", "new_age", "new_type", "new_caretaker_id"] function(err, result){
+			var query = "UPDATE animals SET id = ?, name = ?, age = ?, type = ?, caretaker_id = ? WHERE id = ?";
+			var userResult = [results.id, results.new_name, results.new_age, results.new_type, results.new_caretaker_id];
+			connection.query(query, userResult function(err, result){
+				if (err) throw err;
+				currentScope.menu();
+				currentScope.promptUser();
+			}) ;
+		});
+	};
 }
