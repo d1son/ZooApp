@@ -116,11 +116,24 @@ var zoo = {
 		prompt.get(["city_name"] function(err, result){
 			var query = "SELECT COUNT (*) FROM animals,caretakers WHERE caretakers.city=? AND caretaker.id = animals.caretaker_id"
 			var userResult = results.city_name;
-			connection.query(quert, userResult function(err, result){
+			connection.query(query, userResult function(err, result){
 				if (err) throw (err);
 				currentScope.visit();
 				currentScope.view(currentScope);
 			});
 		});
 	}
+	animId: function(input_scope){
+		var currentScope = input_scope;
+		console.log("Enter ID of the animal you want to vist");
+		prompt.get(["animal_id"] function(err, result){
+			var query = "SELECT * FROM animals WHERE id = ?";
+			var userResult = results.animal_id;
+			connection.query(query, userResult function(err, result){
+				if (err) throw err;
+				currentScope.visit();
+				currentScope.view(currentScope);
+			});
+		});
+	};
 }
