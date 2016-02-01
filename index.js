@@ -97,5 +97,18 @@ var zoo = {
 		currentScope.visit();
 		currentScope.view(currentScope)
 	};
+	type: function(input_scope){
+		var currentScope = input_scope;
+		console.log("Enter animal type to find how many animals we have of that type");
+		prompt.get(["animal_type"] function(err, result){
+			var query = "SELECT COUNT (type) FROM animals WHERE type = ?";
+			var userResult = result.animal_type;
+			connection.query(query, userResult, function(err, result){
+				if (err) throw err;
+				currentScope.menu();
+				currentScope.promptUser();
+			});
+		});
+	};
 	
 }
