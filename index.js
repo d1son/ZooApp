@@ -204,4 +204,13 @@ var zoo = {
 			}
 		});
 	};
+	exit: function(){
+		console.log("Thank you for visiting us, good bye~!!");
+		process.exit();
+	};
+	open: function(){
+		this.welcome();
+		this.menu();
+		this.promptUser();
+	};
 }
