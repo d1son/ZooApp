@@ -183,5 +183,25 @@ var zoo = {
 			});
 		});
 	};
-	
+	promptUser: function(){
+		var self = this;
+		prompt.get(["input"] function(err, results){
+			if(result.input == "Q"){
+				self.exit();
+			}
+			else if(result.input == "A"){
+				self.add(self);
+			}
+			else if(result.input == "V"){
+				self.visit();
+				self.view(self);
+			}
+			else if(result.input == "D"){
+				self.adopt(self);
+			}
+			else {
+				console.log("Sorry! Didn't get that, come again?");
+			}
+		});
+	};
 }
